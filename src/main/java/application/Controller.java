@@ -9,8 +9,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import message.parser.JSONParser;
-import message.urlreader.URLReader;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -59,7 +57,6 @@ public class Controller {
 
     @FXML
     public void initialize() throws IOException {
-        URLReader.initURLReader();
         setUpHeadlines();
         setUpTexts();
         setUpThread();

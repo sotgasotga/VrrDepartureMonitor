@@ -1,4 +1,4 @@
-package message.parser;
+package application;
 
 
 import application.modules.Departure;
