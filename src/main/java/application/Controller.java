@@ -133,20 +133,20 @@ public class Controller {
                 stopURL = "";
                 break;
         }
-        String[] text = new String[3];
+        String[] departureLine = new String[3];
         try {
-            text = getNewText(stopURL, stop);
-            if (text[2].contains("min")) {
+            departureLine = getNewText(stopURL, stop);
+            if (departureLine[2].contains("min")) {
                 gotText = true;
             }
         } catch (Exception ignored) {
         }
         if (!gotText) {
-            text = calculateTimeAfterError(line, flow, time, stop);
+            departureLine = calculateTimeAfterError(line, flow, time, stop);
         }
 
 
-        final String[] finalText = text;
+        final String[] finalText = departureLine;
         Platform.runLater(() -> {
             line.setText(finalText[0]);
             flow.setText(finalText[1]);
@@ -172,7 +172,6 @@ public class Controller {
         text[0] = line;
         text[1] = stop;
         text[2] = time;
-
 
         if (__DEBUG) {
             System.out.println(text[0]);
@@ -203,7 +202,9 @@ public class Controller {
             String t = minutesToWait[i];
             if (t.contains("min")) {
                 long newMinutes = (Integer.parseInt(t.split(" ")[0]) - ellapsedTime);
-                newTime[i] = newMinutes > 0 ? String.valueOf(newMinutes) : "";
+                if (newMinutes > 0) {
+                    newTime[i] = String.valueOf(newMinutes);
+                } else newTime[i] = "";
             } else {
                 newTime[i] = "";
             }
