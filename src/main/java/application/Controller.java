@@ -164,7 +164,7 @@ public class Controller {
 
         for (Departure departure : departures) {
             line += trimString(departure.getLineName(), 4) + "\n";
-            stop += trimString(departure.getDestination(), 18) + "\n";
+            stop += trimString(departure.getDestination(), 17) + "\n";
             time += trimString(departure.getDepartureTime(), 6) + "\n";
         }
 
