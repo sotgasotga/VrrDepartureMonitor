@@ -8,9 +8,9 @@ import lombok.ToString;
 public class Departure {
     String lineName;
     String destination;
-    String departureTime;
+    int departureTime;
 
-    public Departure(String lineName, String destination, String departureTime) {
+    public Departure(String lineName, String destination, int departureTime) {
         this.lineName = lineName;
         this.destination = destination;
         this.departureTime = departureTime;
