@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -83,12 +82,11 @@ public class Controller {
     private void loop() {
         try {
             downloadDepartures();
-            lastDownloadTime = LocalTime.now();
             updateDepartures();
             Platform.runLater(() -> errorText.setText(""));
         } catch (IOException e) {
-            updateDeparturesOffline();
             Platform.runLater(() -> errorText.setText("Connection Error"));
+            updateDeparturesOffline();
         }
     }
 
@@ -112,6 +110,7 @@ public class Controller {
         station2.downloadDepartures();
         station3.downloadDepartures();
         station4.downloadDepartures();
+        lastDownloadTime = LocalTime.now();
     }
 
     private int timeSinceLastDownload() {

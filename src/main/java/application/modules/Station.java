@@ -8,7 +8,10 @@ import lombok.Data;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -44,7 +47,7 @@ public class Station {
     public void generateDepartureTimeColumn() {
         String departureTimeColumn = "";
         for (Departure departure : departures) {
-            if (departure.departureTime != -1) {
+            if (departure.departureTime > 0) {
                 departureTimeColumn += departure.departureTime + " " + "min" + "\n";
             } else {
                 departureTimeColumn += "\n";
@@ -83,16 +86,30 @@ public class Station {
         generateLineColumn();
         generateDestinationColumn();
         generateDepartureTimeColumn();
+    }
 
+    private void removeDeparted() {
+        departures.removeAll(departures.stream()
+                .filter(i -> i.departureTime <= 0)
+                .collect(Collectors
+                    .toList()));
     }
 
     public void updateDeparturesOffline(int timeSinceLastDownload) {
+        generateDeparturesIfNull();
         for (Departure departure : departures) {
-            departure.setDepartureTime(departure.getDepartureTime() - timeSinceLastDownload);
+            departure.setDepartureTime(departure.getOriginalDepartureTime() - timeSinceLastDownload);
         }
+        removeDeparted();
         generateLineColumn();
         generateDestinationColumn();
         generateDepartureTimeColumn();
+    }
+
+    private void generateDeparturesIfNull() {
+        if (departures == null) {
+            this.departures = new LinkedList<>();
+        }
     }
 
     public void downloadDepartures() throws IOException {
@@ -112,6 +129,7 @@ public class Station {
     private String optimizeDestinationNames(String destinationName) {
         destinationName = destinationName.replace("D-","");
         destinationName = destinationName.replace(" Köln/", " ");
+        destinationName = destinationName.replace("Hauptbahnhof", "Hbf");
         destinationName = destinationName.replace(", ", " ");
         return destinationName;
     }
