@@ -17,4 +17,21 @@ public class Departure {
         this.originalDepartureTime = originalDepartureTime;
         this.departureTime = originalDepartureTime;
     }
+
+    /**
+     * Diese Methode sollte durch Lomboks @Data automatisch generiert werden,
+     * das scheint aber nicht zu passieren
+     * @return originalDepartureTime
+     */
+    public int getOriginalDepartureTime() {
+        return originalDepartureTime;
+    }
+
+    /**
+     * Diese Methode sollte durch Lomboks @Data automatisch generiert werden,
+     * das scheint aber nicht zu passieren
+     */
+    public void setDepartureTime(int departureTime) {
+        this.departureTime = departureTime;
+    }
 }

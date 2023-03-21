@@ -28,6 +28,14 @@ public class Station {
     Text destinationColumn;
     Text departureTimeColumn;
 
+    public Station(int hopefullyUselessID,  Font font, Color textcolor, String name, URL url) {
+        this.hopefullyUselessID = hopefullyUselessID;
+        this.font = font;
+        this.textcolor = textcolor;
+        this.name = name;
+        this.url = url;
+    }
+
     public void generateLineColumn() {
         String lineNameColumn = "";
         for (Departure departure : departures) {

@@ -130,34 +130,18 @@ public class Controller {
     }
 
     private void generateStations() throws MalformedURLException {
-        station1 = Station.builder()
-                .name(properties.getProperty("firstStop_Name") + ":")
-                .url(new URL(properties.getProperty("firstStop_URL")))
-                .font(font)
-                .textcolor(TEXTCOLOR)
-                .hopefullyUselessID(0)
-                .build();
-        station2 = Station.builder()
-                .name(properties.getProperty("secondStop_Name") + ":")
-                .url(new URL(properties.getProperty("secondStop_URL")))
-                .font(font)
-                .textcolor(TEXTCOLOR)
-                .hopefullyUselessID(1)
-                .build();
-        station3 = Station.builder()
-                .name(properties.getProperty("thirdStop_Name") + ":")
-                .url(new URL(properties.getProperty("thirdStop_URL")))
-                .font(font)
-                .textcolor(TEXTCOLOR)
-                .hopefullyUselessID(2)
-                .build();
-        station4 = Station.builder()
-                .name(properties.getProperty("fourthStop_Name") + ":")
-                .url(new URL(properties.getProperty("fourthStop_URL")))
-                .font(font)
-                .textcolor(TEXTCOLOR)
-                .hopefullyUselessID(3)
-                .build();
+        station1 = new Station(0, font, TEXTCOLOR,
+                properties.getProperty("firstStop_Name") + ":",
+                new URL(properties.getProperty("firstStop_URL")));
+        station2 = new Station(1, font, TEXTCOLOR,
+                properties.getProperty("secondStop_Name") + ":",
+                new URL(properties.getProperty("secondStop_URL")));
+        station3 = new Station(2, font, TEXTCOLOR,
+                properties.getProperty("thirdStop_Name") + ":",
+                new URL(properties.getProperty("thirdStop_URL")));
+        station4 = new Station(3, font, TEXTCOLOR,
+                properties.getProperty("fourthStop_Name") + ":",
+                new URL(properties.getProperty("fourthStop_URL")));
     }
 
     Service<Void> screenService = new Service<Void>() {
