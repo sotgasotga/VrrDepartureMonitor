@@ -18,7 +18,6 @@ import javafx.scene.text.TextFlow;
 @Data
 @Builder
 public class Station {
-    int hopefullyUselessID;
     String name;
     URL url;
     List<Departure> departures;
@@ -28,8 +27,7 @@ public class Station {
     Text destinationColumn;
     Text departureTimeColumn;
 
-    public Station(int hopefullyUselessID,  Font font, Color textcolor, String name, URL url) {
-        this.hopefullyUselessID = hopefullyUselessID;
+    public Station(Font font, Color textcolor, String name, URL url) {
         this.font = font;
         this.textcolor = textcolor;
         this.name = name;

@@ -130,16 +130,16 @@ public class Controller {
     }
 
     private void generateStations() throws MalformedURLException {
-        station1 = new Station(0, font, TEXTCOLOR,
+        station1 = new Station(font, TEXTCOLOR,
                 properties.getProperty("firstStop_Name") + ":",
                 new URL(properties.getProperty("firstStop_URL")));
-        station2 = new Station(1, font, TEXTCOLOR,
+        station2 = new Station(font, TEXTCOLOR,
                 properties.getProperty("secondStop_Name") + ":",
                 new URL(properties.getProperty("secondStop_URL")));
-        station3 = new Station(2, font, TEXTCOLOR,
+        station3 = new Station(font, TEXTCOLOR,
                 properties.getProperty("thirdStop_Name") + ":",
                 new URL(properties.getProperty("thirdStop_URL")));
-        station4 = new Station(3, font, TEXTCOLOR,
+        station4 = new Station(font, TEXTCOLOR,
                 properties.getProperty("fourthStop_Name") + ":",
                 new URL(properties.getProperty("fourthStop_URL")));
     }
