@@ -37,31 +37,31 @@ public class Station {
     }
 
     public void generateLineColumn() {
-        String lineNameColumn = "";
+        StringBuilder lineNameColumn = new StringBuilder();
         for (Departure departure : departures) {
-            lineNameColumn += trimString(departure.lineName, 4) + "\n";
+            lineNameColumn.append(trimString(departure.lineName, 4)).append("\n");
         }
-        this.lineNameColumn.setText(lineNameColumn);
+        this.lineNameColumn.setText(lineNameColumn.toString());
     }
 
     public void generateDestinationColumn() {
-        String destinationColumn = "";
+        StringBuilder destinationColumn = new StringBuilder();
         for (Departure departure : departures) {
-            destinationColumn += trimString(optimizeDestinationNames(departure.destination), 17) + "\n";
+            destinationColumn.append(trimString(optimizeDestinationNames(departure.destination), 17)).append("\n");
         }
-        this.destinationColumn.setText(destinationColumn);
+        this.destinationColumn.setText(destinationColumn.toString());
     }
 
     public void generateDepartureTimeColumn() {
-        String departureTimeColumn = "";
+        StringBuilder departureTimeColumn = new StringBuilder();
         for (Departure departure : departures) {
             if (departure.departureTime > 0) {
-                departureTimeColumn += departure.departureTime + " " + "min" + "\n";
+                departureTimeColumn.append(departure.departureTime).append(" ").append("min").append("\n");
             } else {
-                departureTimeColumn += "\n";
+                departureTimeColumn.append("\n");
             }
         }
-        this.departureTimeColumn.setText(departureTimeColumn);
+        this.departureTimeColumn.setText(departureTimeColumn.toString());
     }
 
     public void setupTexts(TextFlow lineNameColumnTextFlow, TextFlow destinationColumnTextFlow, TextFlow departureTimeColumnTextFlow, Text heading) {
@@ -99,8 +99,7 @@ public class Station {
     private void removeDeparted() {
         departures.removeAll(departures.stream()
                 .filter(i -> i.departureTime <= 0)
-                .collect(Collectors
-                    .toList()));
+                .toList());
     }
 
     public void updateDeparturesOffline(int timeSinceLastDownload) {

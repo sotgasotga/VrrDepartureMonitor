@@ -12,6 +12,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 
 public class Main extends Application {
 
@@ -20,11 +22,11 @@ public class Main extends Application {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         if (primaryScreenBounds.getWidth() == 1280 && primaryScreenBounds.getHeight() == 1024)
             primaryStage.setFullScreen(true);
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/start_medium.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/start_medium.fxml")));
         primaryStage.setTitle("VRR_Monitor");
 
         Scene scene = new Scene(root);
-        scene.setOnKeyPressed((KeyEvent event) -> handleExit(event));
+        scene.setOnKeyPressed(this::handleExit);
 
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(event -> System.exit(0));

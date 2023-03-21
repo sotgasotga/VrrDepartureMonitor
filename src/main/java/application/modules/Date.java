@@ -14,7 +14,7 @@ public class Date extends Label implements Updateable {
 
     public Date() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy  hh:mm a");
-        this.setText(LocalDateTime.now().format(formatter).toString());
+        this.setText(LocalDateTime.now().format(formatter));
         System.out.println(this.getText());
     }
 
