@@ -24,6 +24,6 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
     implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.26'
-    implementation group: 'org.jsoup', name: 'jsoup', version: '1.10.3'
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.3'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.1'
 }
