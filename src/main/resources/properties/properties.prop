@@ -4,7 +4,7 @@ firstStop_Name        =     Uni Ost
 firstStop_URL         =     https://vrrf.finalrewind.org/D%C3%BCsseldorf/Uni%20Ost/Botanischer%20Garten.json?frontend=json&no_lines=10&offset=5&line=7%2CU
 
 secondStop_Name       =     Uni Mitte
-secondStop_URL        =     https://vrrf.finalrewind.org/D%C3%BCsseldorf/Uni%20Mitte.json?frontend=json&no_lines=10&offset=5&line=7%2C8%2CSB%2CM
+secondStop_URL        =     https://vrrf.finalrewind.org/D%C3%BCsseldorf/Uni%20Mitte.json?frontend=json&no_lines=10&offset=5&line=7%2C8%2CSB%2CM%2CNE
 
 thirdStop_Name        =     Uni Nord
 thirdStop_URL         =     https://vrrf.finalrewind.org/D%C3%BCsseldorf/Uni%20Nord/Christophstra%C3%9Fe.json?frontend=json&no_lines=10&offset=10&line=7%2CU
