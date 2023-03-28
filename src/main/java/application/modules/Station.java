@@ -16,7 +16,6 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 @Data
-@Builder
 public class Station {
     String name;
     URL url;
