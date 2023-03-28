@@ -97,7 +97,8 @@ public class Station {
     private void removeDeparted() {
         departures.removeAll(departures.stream()
                 .filter(i -> i.departureTime <= 0)
-                .toList());
+                .collect(Collectors
+                        .toList()));
     }
 
     public void updateDeparturesOffline(int timeSinceLastDownload) {

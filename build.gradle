@@ -1,23 +1,17 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 group 'de.hhu.fscs'
 version '1.0.0-SNAPSHOT'
 
-sourceCompatibility = 17
+sourceCompatibility = 1.8
 
 mainClassName = 'application.Main'
 
 repositories {
     mavenCentral()
-}
-
-javafx {
-    version = "19"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 dependencies {
