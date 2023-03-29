@@ -26,11 +26,21 @@ jobs:
       with:
         java-version: '8'
         distribution: 'corretto'
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+    - uses: rickstaa/action-create-tag@v1
+      id: "tag_create"
+      with:
+        tag: ${{ steps.date.outputs.date }}
+        tag_exists_error: false
+        message: "Latest release"
     - name: Generate ShadowJar
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: shadowJar
     - name: Release
       uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         files: build/libs/VrrDepartureMonitor-1.0.0-SNAPSHOT-all.jar
