@@ -26,7 +26,13 @@ jobs:
       with:
         java-version: '8'
         distribution: 'corretto'
-    - name: Build with Gradle
+    - name: Generate ShadowJar
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
-        arguments: build
+        arguments: shadowJsr
+    - name: Test
+      run: cat Release.txt
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/libs/VrrDepartureMonitor-1.0.0-SNAPSHOT-all.jar
