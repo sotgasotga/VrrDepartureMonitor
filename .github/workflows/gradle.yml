@@ -29,7 +29,7 @@ jobs:
     - name: Generate ShadowJar
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
-        arguments: shadowJsr
+        arguments: shadowJar
     - name: Test
       run: cat Release.txt
     - name: Release
