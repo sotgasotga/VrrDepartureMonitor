@@ -26,8 +26,12 @@ jobs:
       with:
         java-version: '8'
         distribution: 'corretto'
-
+        
   publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 1.8
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
