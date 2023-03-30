@@ -41,8 +41,8 @@ jobs:
           arguments: shadowJar
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-            repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        prerelease: false
-        automatic_release_tag: ${{ steps.date.outputs.date }}
-        files: |
-          build/libs/VrrDepartureMonitor-1.0.0-SNAPSHOT-all.jar
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: ${{ steps.date.outputs.date }}
+          files: |
+            build/libs/VrrDepartureMonitor-1.0.0-SNAPSHOT-all.jar
