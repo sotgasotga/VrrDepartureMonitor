@@ -26,24 +26,22 @@ jobs:
         with:
           java-version: '8'
           distribution: 'corretto'
-
-  publish:
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-    - uses: rickstaa/action-create-tag@v1
-      id: "tag_create"
-      with:
-        tag: ${{ steps.date.outputs.date }}
-        tag_exists_error: false
-        message: "Latest release"
-    - name: Generate ShadowJar
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: shadowJar
-    - uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
+        with:
+          tag: ${{ steps.date.outputs.date }}
+          tag_exists_error: false
+          message: "Latest release"
+      - name: Generate ShadowJar
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: shadowJar
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+            repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         automatic_release_tag: ${{ steps.date.outputs.date }}
         files: |
